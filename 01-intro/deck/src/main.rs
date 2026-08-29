@@ -3,22 +3,34 @@ struct Deck {
     cards: Vec<String>,
 }
 
-fn main() {
-    // vars are unmutable by default
-    let suits = ["Hearts", "Spades", "Diamonds"];
-    let values = ["Ace", "Two", "Three"];
+impl Deck {
+    // associated function
+    fn new() -> Self {
+        // vars are unmutable by default
+        let suits = ["Hearts", "Spades", "Diamonds"];
+        let values = ["Ace", "Two", "Three"];
 
-    // mutable var
-    let mut cards = vec![];
+        // mutable var
+        let mut cards = vec![];
 
-    for suit in suits {
-        for value in values {
-            let card = format!("{} of {}", value, suit);
-            cards.push(card);
+        for suit in suits {
+            for value in values {
+                let card = format!("{} of {}", value, suit);
+                cards.push(card);
+            }
         }
+
+        let deck = Deck { cards };
+        return deck;
     }
 
-    let deck = Deck { cards };
+    // method
+    fn shuffle(&self) {}
+}
+
+fn main() {
+    let deck = Deck::new();
+    deck.shuffle();
 
     // formatted output with #
     println!("My deck: {:#?}", deck);

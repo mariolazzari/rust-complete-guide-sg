@@ -68,3 +68,49 @@ fn main() {
 ```
 
 ### Implementations and methods
+
+```rust
+#[derive(Debug)]
+struct Deck {
+    cards: Vec<String>,
+}
+
+impl Deck {
+    // associated function
+    fn new() -> Self {
+        // vars are unmutable by default
+        let suits = ["Hearts", "Spades", "Diamonds"];
+        let values = ["Ace", "Two", "Three"];
+
+        // mutable var
+        let mut cards = vec![];
+
+        for suit in suits {
+            for value in values {
+                let card = format!("{} of {}", value, suit);
+                cards.push(card);
+            }
+        }
+
+        let deck = Deck { cards };
+        return deck;
+    }
+
+    // method
+    fn shuffle(&self) {}
+}
+
+fn main() {
+    let deck = Deck::new();
+    deck.shuffle();
+
+    // formatted output with #
+    println!("My deck: {:#?}", deck);
+}
+```
+
+### Implicit return
+
+```rust
+
+```
