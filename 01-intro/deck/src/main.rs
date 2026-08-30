@@ -20,8 +20,8 @@ impl Deck {
             }
         }
 
-        let deck = Deck { cards };
-        return deck;
+        // implicit return (no ;)
+        Deck { cards }
     }
 
     // method
