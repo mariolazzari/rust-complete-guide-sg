@@ -152,3 +152,25 @@ fn main() {
 ```
 
 ### External crates
+
+- [Rust stdlib](https://doc.rust-lang.org/std/)
+- [Creates](https://crates.io/)
+- [Docs](https://docs.rs/)
+
+```sh
+cargo add rand
+```
+
+```toml
+[package]
+name = "deck"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+rand = "0.10.2"
+```
+
+```rust
+
+```
