@@ -272,3 +272,5 @@ fn main() {
     println!("My deck: {:#?}", deck);
 }
 ```
+
+## Ownership and borrowing
