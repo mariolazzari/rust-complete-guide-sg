@@ -6,7 +6,7 @@ struct Deck {
 }
 
 impl Deck {
-    // associated function
+    // associated functions
     fn new() -> Self {
         // vars are unmutable by default
         let suits = ["Hearts", "Spades", "Diamonds"];
@@ -26,10 +26,14 @@ impl Deck {
         Deck { cards }
     }
 
-    // method
+    // methods
     fn shuffle(&mut self) {
         let mut rng = rng();
         self.cards.shuffle(&mut rng);
+    }
+
+    fn deal(&mut self, num_cards: usize) -> Vec<String> {
+        self.cards.split_off(self.cards.len() - num_cards)
     }
 }
 
@@ -37,6 +41,8 @@ fn main() {
     let mut deck = Deck::new();
     deck.shuffle();
 
-    // formatted output with #
+    let cards = deck.deal(3);
+
+    println!("My cards: {:#?}", cards);
     println!("My deck: {:#?}", deck);
 }
