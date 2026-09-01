@@ -274,3 +274,111 @@ fn main() {
 ```
 
 ## Ownership and borrowing
+
+### Structs
+
+```rust
+#[derive(Debug)]
+struct Account {
+    id: u32,
+    balance: i32,
+    holder: String,
+}
+
+#[derive(Debug)]
+struct Bank {
+    accounts: Vec<Account>,
+}
+
+impl Bank{
+    fn new()-> Self{
+        
+    }
+}
+
+fn main() {
+    println!("Hello, world!");
+}
+```
+
+### Inherent implementatios
+
+```rust
+#[derive(Debug)]
+struct Account {
+    id: u32,
+    balance: i32,
+    holder: String,
+}
+
+impl Account {
+    fn new(id: u32, holder: String) -> Self {
+        Account {
+            id,
+            balance: 0,
+            holder,
+        }
+    }
+}
+
+#[derive(Debug)]
+struct Bank {
+    accounts: Vec<Account>,
+}
+
+impl Bank {
+    fn new() -> Self {
+        Bank { accounts: vec![] }
+    }
+}
+
+fn main() {
+    
+    println!("Hello, world!");
+}
+```
+
+### Use of moved value
+
+```rust
+#[derive(Debug)]
+struct Account {
+    id: u32,
+    balance: i32,
+    holder: String,
+}
+
+impl Account {
+    fn new(id: u32, holder: String) -> Self {
+        Account {
+            id,
+            balance: 0,
+            holder,
+        }
+    }
+}
+
+#[derive(Debug)]
+struct Bank {
+    accounts: Vec<Account>,
+}
+
+impl Bank {
+    fn new() -> Self {
+        Bank { accounts: vec![] }
+    }
+}
+
+fn print_account(account: Account) {
+    println!("{:#?}", account);
+}
+
+fn main() {
+    let bank = Bank::new();
+    let account = Account::new(1, String::from("Mario"));
+
+    println!("{:#?}", bank);
+    print_account(account);
+    // print_account(account); -> use of moved value
+}
+```
