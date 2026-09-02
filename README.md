@@ -382,3 +382,8 @@ fn main() {
     // print_account(account); -> use of moved value
 }
 ```
+
+### Ownership basics
+
+- Every value is owned by a single variable at a time
+- Reasigning the value to another variable moves the value: original variable cannot be used
