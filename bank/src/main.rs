@@ -26,15 +26,20 @@ impl Bank {
     }
 }
 
-fn print_account(account: Account) {
+fn print_account(account: Account) -> Account {
     println!("{:#?}", account);
+    account
+}
+
+fn print_holder(holder: String) {
+    println!("{}", holder);
 }
 
 fn main() {
-    let bank = Bank::new();
-    let account = Account::new(1, String::from("Mario"));
+    let mut account = Account::new(1, String::from("Mario"));
 
-    println!("{:#?}", bank);
-    print_account(account);
-    // print_account(account); -> use of moved value
+    account = print_account(account);
+    account = print_account(account);
+
+    println!("{:#?}", account)
 }
