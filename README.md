@@ -438,6 +438,8 @@ fn main() {
 
 ### Borrow system
 
+Reference looks to a value without moving it
+
 ```rust
 #[derive(Debug)]
 struct Account {
@@ -482,6 +484,17 @@ fn main() {
 
 ### Immutable reference
 
-```rust
+You can move any number of unmutable references, but you cannot mutate a readonly reference.
 
+```rust
+fn main() {
+    let account = Account::new(1, String::from("Mario"));
+    let account_ref1 = &account;
+    let account_ref2 = &account;
+
+    print_account(account_ref1);
+    print_account(account_ref2);
+    
+    println!("{:#?}", account)
+}
 ```
