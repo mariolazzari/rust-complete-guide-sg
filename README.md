@@ -501,6 +501,43 @@ fn main() {
 
 ### Mutable reference
 
-```rus
+You can use mutable reference if no readable reference are present
+
+```rust
+fn print_account(account: &Account) {
+    println!("{:#?}", account);
+}
+
+fn change_account(account: &mut Account) {
+    account.balance = 10
+}
+
+fn main() {
+    let mut account = Account::new(1, String::from("Mario"));
+
+    change_account(&mut account);
+    print_account(&account);
+}
+```
+
+### Copy-able values
+
+Primitive values art copied, not moved.
+
+```rust
+fn main() {
+    let num = 5;
+
+    let other_num = num;
+
+    print!("{} {}", num, other_num)
+}
+```
+
+## Lifetimes
+
+### Basics
+
+```rust
 
 ```
