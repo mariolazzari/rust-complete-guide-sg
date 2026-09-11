@@ -21,8 +21,23 @@ impl Media {
     }
 }
 
+#[derive(Debug)]
+struct Catalog {
+    items: Vec<Media>,
+}
+
+impl Catalog {
+    fn new() -> Self {
+        Catalog { items: vec![] }
+    }
+
+    fn add(&mut self, media: Media) {
+        self.items.push(media);
+    }
+}
+
 fn print_media(media: Media) {
-    println!("{:#?}", media)
+    println!("{:#?}", media.description())
 }
 
 fn main() {
@@ -40,9 +55,14 @@ fn main() {
         author: String::from("Bad Author"),
     };
 
-    audiobook.description();
+    // print_media(audiobook);
+    // print_media(good_movie);
+    // print_media(bad_book);
 
-    print_media(audiobook);
-    print_media(good_movie);
-    print_media(bad_book);
+    let mut catalog = Catalog::new();
+    catalog.add(audiobook);
+    catalog.add(good_movie);
+    catalog.add(bad_book);
+
+    println!("{:#?}", catalog);
 }
