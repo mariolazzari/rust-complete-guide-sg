@@ -969,3 +969,13 @@ fn main() {
 ```
 
 ### Option Enum
+
+- no null, nil or undefined
+- built-in enum Option
+- Some or None
+- pattern matching
+- must handle two cases: value or not
+
+```rust
+
+```

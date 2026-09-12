@@ -74,5 +74,12 @@ fn main() {
     catalog.add(podcast);
     catalog.add(placeholder);
 
-    println!("{:#?}", catalog);
+    match catalog.items.get(0) {
+        Option::Some(value) => {
+            println!("{:#?}", value);
+        }
+        Option::None => {
+            println!("no value...");
+        }
+    }
 }
