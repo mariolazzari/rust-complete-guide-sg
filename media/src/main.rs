@@ -42,6 +42,16 @@ impl Catalog {
     fn add(&mut self, media: Media) {
         self.items.push(media);
     }
+
+    fn get_by_index(&self, index: usize) -> Option<&Media> {
+        if self.items.len() > index {
+            // Good! We have somethign to return
+            Some(&self.items[index])
+        } else {
+            // Bad! We don't have anything to return!!!
+            None
+        }
+    }
 }
 
 fn print_media(media: Media) {
@@ -80,6 +90,15 @@ fn main() {
         }
         Option::None => {
             println!("no value...");
+        }
+    }
+
+    match catalog.get_by_index(9999) {
+        Some(value) => {
+            println!("Item: {:#?}", value);
+        }
+        None => {
+            println!("No value here!");
         }
     }
 }
