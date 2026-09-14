@@ -1,3 +1,5 @@
+use crate::Media::Placeholder;
+
 #[derive(Debug)]
 enum Media {
     Book { title: String, author: String },
@@ -101,4 +103,10 @@ fn main() {
             println!("No value here!");
         }
     }
+
+    let item = catalog.get_by_index(9999);
+    let placeholder = Media::Placeholder;
+    // println!("Item: {:#?}", item.unwrap()); // panic on 9999
+    // println!("Item: {:#?}", item.expect("expteced value")); // panic on 9999
+    println!("Item: {:#?}", item.unwrap_or(&placeholder));
 }
