@@ -1210,6 +1210,25 @@ fn main() {
 
 ### Modules overview
 
+Group togheter related piece of codes.
+
 ### Rules on modules
 
+- mod
+- use
+- pub
+
 ### Multiple modules
+
+```rust
+pub mod catalog;
+pub mod media;
+```
+
+## Errors and results
+
+### Project overview
+
+```sh
+cargo new logs
+```
