@@ -1232,3 +1232,29 @@ pub mod media;
 ```sh
 cargo new logs
 ```
+
+### Read file
+
+```rust
+use std::fs;
+
+fn main() {
+    let text = fs::read_to_string("logs.txt");
+
+    println!("{:#?}", text);
+}
+```
+
+### Result enum
+
+Result<T,E>
+
+```rust
+fn divide(a: f64, b: f64) -> Result<f64, Error> {
+    if b == 0.0 {
+        Err(Error::other("can't divide by 0"))
+    } else {
+        Ok(a / b)
+    }
+}
+```
