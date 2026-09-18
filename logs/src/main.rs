@@ -13,6 +13,21 @@ fn main() {
             println!("error: {}", err);
         }
     };
+
+    match validate_email(String::from("mario.lazzari@gmail.com")) {
+        Ok(..) => println!("email is valid"),
+        Err(reason) => {
+            println!("{}", reason)
+        }
+    }
+}
+
+fn validate_email(email: String) -> Result<(), Error> {
+    if email.contains("@") {
+        Ok(())
+    } else {
+        Err(Error::other("invalid email address"))
+    }
 }
 
 fn divide(a: f64, b: f64) -> Result<f64, Error> {
