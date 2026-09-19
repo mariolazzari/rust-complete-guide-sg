@@ -1,39 +1,20 @@
 use std::fs;
-use std::io::Error;
+
+fn string_test(a: String, b: &String, c: &str) {}
 
 fn main() {
-    let text = fs::read_to_string("logs.txt");
-    println!("{:#?}", text);
+    string_test(
+        "red".to_string(),
+        &String::from("red"),
+        String::from("red").as_str(),
+    );
 
-    match divide(5.0, 3.0) {
-        Ok(result) => {
-            println!("result of division: {:#?}", result);
+    match fs::read_to_string("logs.txt") {
+        Ok(was_read) => {
+            println!("{:#?}", was_read.len());
         }
         Err(err) => {
-            println!("error: {}", err);
+            println!("error: {}", err)
         }
-    };
-
-    match validate_email(String::from("mario.lazzari@gmail.com")) {
-        Ok(..) => println!("email is valid"),
-        Err(reason) => {
-            println!("{}", reason)
-        }
-    }
-}
-
-fn validate_email(email: String) -> Result<(), Error> {
-    if email.contains("@") {
-        Ok(())
-    } else {
-        Err(Error::other("invalid email address"))
-    }
-}
-
-fn divide(a: f64, b: f64) -> Result<f64, Error> {
-    if b == 0.0 {
-        Err(Error::other("can't divide by 0"))
-    } else {
-        Ok(a / b)
     }
 }
