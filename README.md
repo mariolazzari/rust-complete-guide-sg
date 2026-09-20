@@ -1373,3 +1373,27 @@ fn main() {
     }
 }
 ```
+
+### Stack and Heap
+
+- Stack: fast, limited, fixed size (2-8 MB)
+  - Metadata
+- Heap: slow, dynamic, allocates memory
+  - Data
+
+### Strings
+
+- String: a growable, UTF-8 encoded string
+  - Ownership of a text
+  - Can grow or shrink
+- String ref: a reference to a String
+  - Rarely used
+  - Portion of a String
+- String slice: a reference to a part of a String
+  - Read a string owned by another variable
+
+### Finding error logs
+
+```rust
+
+```
