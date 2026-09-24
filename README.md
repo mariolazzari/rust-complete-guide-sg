@@ -1471,3 +1471,28 @@ fn main() {
     fs::write("errors.txt", error_logs.join("\n")).expect("failed to write errors.txt");
 }
 ```
+
+### Try operator
+
+```rust
+fn main() -> Result<(), Error> {
+    let text = fs::read_to_string("asfasdflogs.txt")?;
+    println!("{}", text.len());
+
+    Ok(())
+}
+```
+
+### When to use
+
+- match: error handling
+- unwrap: quick debug
+- ?: default error handling
+
+## Iterators
+
+### Basics
+
+```rust
+
+```
