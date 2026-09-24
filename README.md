@@ -1461,3 +1461,13 @@ fn main() {
     }
 }
 ```
+
+### Nested matches alternatives
+
+```rust
+fn main() {
+    let text = fs::read_to_string("logs.txt").expect("failed to read logs.txt");
+    let error_logs = extract_errors(text.as_str());
+    fs::write("errors.txt", error_logs.join("\n")).expect("failed to write errors.txt");
+}
+```
