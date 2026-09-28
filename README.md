@@ -1657,3 +1657,9 @@ fn main() {
     println!("{:#?}", uppercased);
 }
 ```
+
+### Moving owneship with into_iter
+
+```rust
+
+```
