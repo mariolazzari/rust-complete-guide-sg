@@ -17,6 +17,13 @@ fn move_elements(vec_a: Vec<String>, vec_b: &mut Vec<String>) {
     vec_a.into_iter().for_each(|el| vec_b.push(el));
 }
 
+fn explode(elements: &[String]) -> Vec<Vec<String>> {
+    elements
+        .iter()
+        .map(|el| el.chars().map(|c| c.to_string()).collect())
+        .collect()
+}
+
 fn main() {
     let mut colors = vec![
         String::from("red"),
@@ -30,6 +37,9 @@ fn main() {
 
     let uppercased = to_uppercase(&colors);
     println!("Upperscaled: {:#?}", uppercased);
+
+    let exploded = explode(&colors);
+    println!("Eploded: {:#?}", exploded);
 
     let mut destination = vec![];
     move_elements(colors, &mut destination);
