@@ -17,6 +17,13 @@ fn move_elements(vec_a: Vec<String>, vec_b: &mut Vec<String>) {
     vec_a.into_iter().for_each(|el| vec_b.push(el));
 }
 
+fn find_color_or(elements: &[String], search: &str, callback: &str) -> String {
+    elements
+        .iter()
+        .find(|el| el.contains(search))
+        .map_or(String::from(callback), |el| el.to_string())
+}
+
 fn explode(elements: &[String]) -> Vec<Vec<String>> {
     elements
         .iter()
@@ -40,6 +47,9 @@ fn main() {
 
     let exploded = explode(&colors);
     println!("Eploded: {:#?}", exploded);
+
+    let found_color = find_color_or(&colors, "re", "orange");
+    println!("Found: {:#?}", found_color);
 
     let mut destination = vec![];
     move_elements(colors, &mut destination);
