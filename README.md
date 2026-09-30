@@ -1818,6 +1818,11 @@ fn main() {
 
 ### Lifetime annotation
 
+- How long ref will survive
+- Compiler hint
+
+### Missing annotation
+
 ```rust
 
 ```
