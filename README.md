@@ -2014,3 +2014,47 @@ fn main() {
     println!("{}", solve(a_f64, b));
 }
 ```
+
+### Bulding basket
+
+```rust
+pub struct Basket {
+    item: Option<String>,
+}
+
+impl Basket {
+    pub fn new(item: String) -> Self {
+        Basket { item: Some(item) }
+    }
+
+    pub fn get(&mut self) -> Option<String> {
+        self.item.take()
+    }
+
+    pub fn put(&mut self, item: String) {
+        self.item = Some(item);
+    }
+
+    pub fn is_empty(&self) -> bool {
+        self.item.is_none()
+    }
+}
+```
+
+### Generic struct
+
+```rust
+pub struct Basket<T> {
+    item: Option<T>,
+}
+```
+
+### Implementing traits
+
+```rust
+pub trait Container<T> {
+    fn get(&mut self) -> Option<T>;
+    fn put(&mut self, item: T);
+    fn is_empty(&self) -> bool;
+}
+```
